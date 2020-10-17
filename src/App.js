@@ -21,7 +21,6 @@ export default () => {
   return (
     <div>
       <Search />
-      <Accordion items={items} />
     </div>
   );
 };
