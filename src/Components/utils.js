@@ -9,13 +9,33 @@ const axios = {
               snippet: "Alto mafioso",
               title: Math.random() > 0.5 ? "Pinto Da Costa" : "Don Corleone"
             },
-            { pageid: "2", snippet: "Primeiro Ministro", title: "Tone Costa" },
+            {
+              pageid: "2",
+              snippet: "Primeiro Ministro",
+              title: "Tone Costa"
+            },
             {
               pageid: "3",
               snippet: "Presidente Republica",
               title: "Marcelo Sousa"
             }
           ]
+        });
+      }, Math.random() * 1000);
+    });
+  },
+  postTranslation: async () => {
+    return new Promise((res, err) => {
+      return setTimeout(() => {
+        return res({
+          data: {
+            translations: [
+              {
+                translatedText:
+                  Math.random() < 0.5 ? "vai mase trabalhar" : "oh malandro"
+              }
+            ]
+          }
         });
       }, Math.random() * 1000);
     });

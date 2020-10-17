@@ -1,23 +1,10 @@
-import React, { useState } from "react";
-import Search from "./Components/Search";
-import Dropdown from "./Components/Dropdown";
-
-const options = [
-  { label: "red color", value: "red" },
-  { label: "green color", value: "green" },
-  { label: "blue color", value: "blue" }
-];
+import React from "react";
+import Translate from "./Components/Translate";
 
 export default () => {
-  const [selected, setSelected] = useState(options[0]);
-
   return (
     <div>
-      <Dropdown
-        selected={selected}
-        onSelectedChange={setSelected}
-        options={options}
-      />
+      <Translate />
     </div>
   );
 };
