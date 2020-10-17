@@ -12,13 +12,19 @@ const Search = () => {
       console.log(results);
     };
 
-    search();
+    term && search();
   }, [term]);
 
   // todo
   const renderedResults = results.map((result) => {
     return (
       <div key={result.pageid} className="item">
+        <div className="right floated component">
+          <a href="www.google.pt" className="ui button">
+            {" "}
+            Go{" "}
+          </a>
+        </div>
         <div className="content">
           <div className="header">{result.title}</div>
           {result.snippet}
