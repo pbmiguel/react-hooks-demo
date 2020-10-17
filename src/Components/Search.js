@@ -4,16 +4,26 @@ import axios from "./utils";
 const Search = () => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
+  const [debouncedTerm, setDebouncedTerm] = useState(term);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
 
   useEffect(() => {
     const search = async () => {
-      const res = await axios.get();
+      const res = await axios.get(debouncedTerm);
       setResults(res.data);
-      console.log(results);
     };
 
-    term && search();
-  }, [term]);
+    debouncedTerm && search();
+  }, [debouncedTerm]);
 
   // todo
   const renderedResults = results.map((result) => {
